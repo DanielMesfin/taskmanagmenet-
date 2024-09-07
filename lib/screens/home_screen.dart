@@ -3,6 +3,7 @@ import 'package:taskmanagmenet/screens/drawer_screen.dart';
 import 'package:taskmanagmenet/screens/main_screen.dart';
 
 import 'package:taskmanagmenet/screens/add_task_screen.dart';
+import 'package:taskmanagmenet/screens/setting_screen.dart';
 import 'package:taskmanagmenet/screens/settings_screen.dart';
 import 'package:taskmanagmenet/style/style.dart';
 
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     MainScreen(),
     AddEditTaskScreen(),
     SettingsScreen(),
+    // MyProfile()
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -32,14 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "My Task",
-          style: Styles.titleStyle,
-        ),
-        actions: <Widget>[
-          Image.asset('assets/images/signin_balls.png'),
-        ]
-      ),
+          title: const Text(
+            "My Task",
+            style: Styles.titleStyle,
+          ),
+          actions: <Widget>[
+            Image.asset('assets/images/signin_balls.png'),
+          ]),
       drawer: const DrawerScreen(),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -55,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Add Task',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.settings),
             label: 'Settings',
           ),
         ],
