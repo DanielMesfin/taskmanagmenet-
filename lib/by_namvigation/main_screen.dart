@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:taskmanagmenet/model/task_model.dart';
 import 'package:taskmanagmenet/provider/task_Provider.dart';
-import 'package:taskmanagmenet/screens/manage_task.dart';
+import 'package:taskmanagmenet/screens/add_task_screen.dart';
 import 'package:taskmanagmenet/style/style.dart';
 
 class MainScreen extends StatefulWidget {

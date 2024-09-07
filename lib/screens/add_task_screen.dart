@@ -50,10 +50,10 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
         child: Form(
           key: _formKey,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const Text(
-                'Add or Edit Task',
+                'Add Task',
                 style: Styles.largeBoldText,
               ),
               TextFormField(
@@ -114,7 +114,8 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
                   }
                 },
                 text: "Add Task",
-              )
+              ),
+            
             ],
           ),
         ),

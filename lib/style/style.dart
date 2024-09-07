@@ -2,83 +2,8 @@ import 'package:flutter/material.dart';
 
 class Styles {
   static const largeBoldText = TextStyle(
-    fontSize: 27,
+    fontSize: 20,
     fontWeight: FontWeight.w900,
-  );
-
-  static const labelBoldBlackText = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.bold,
-    color: Colors.black87,
-  );
-
-  static const buttonGrdient = LinearGradient(colors: <Color>[
-    Color(0xff06186d),
-    Color(0xff1d3aa3),
-    Color(0xff203faa),
-  ], tileMode: TileMode.mirror);
-
-  static const blueContainerGrdient = LinearGradient(
-      begin: Alignment.bottomLeft,
-      end: Alignment.topRight,
-      colors: <Color>[
-        Color(0xff06186d),
-        Color(0xff4066d2),
-        Color(0xff203faa),
-      ],
-      tileMode: TileMode.mirror);
-
-  static const yellowishGrdient = LinearGradient(colors: <Color>[
-    Color(0xffe8182e),
-    Color(0xfff55460),
-  ], tileMode: TileMode.mirror);
-
-  static const blueGrdient = LinearGradient(colors: <Color>[
-    Color(0xff1266e7),
-    Color(0xff1f81e8),
-    Color(0xff1266e7),
-  ], tileMode: TileMode.mirror);
-
-  static const defaultButtonGrdient = LinearGradient(
-    colors: <Color>[
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffffffff),
-    ],
-    tileMode: TileMode.mirror,
-  );
-
-  static const appGrdient = LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: <Color>[
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffcce0d8),
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffffffff),
-      Color(0xffcec2c2),
-    ],
-    tileMode: TileMode.mirror,
-  );
-
-  static const blueWhiteBlueGrdient = LinearGradient(
-    begin: Alignment.bottomLeft,
-    end: Alignment.topRight,
-    colors: <Color>[
-      Color(0xff072079),
-      Color(0xff405ae2),
-      Color(0xff405ae2),
-      Color(0xff1e33ce),
-    ],
-    tileMode: TileMode.mirror,
   );
 
   static const kBgColor = LinearGradient(

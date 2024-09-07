@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:taskmanagmenet/model/task_model.dart';
 import 'package:taskmanagmenet/provider/task_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:taskmanagmenet/widget/gradient_button.dart';
 
 class EditTaskScreen extends StatefulWidget {
   final int taskIndex;
@@ -63,8 +64,6 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
 
       Provider.of<TaskProvider>(context, listen: false)
           .editTask(widget.taskIndex, editedTask);
-
-      Navigator.pop(context); // Go back to the previous screen
     }
   }
 
@@ -78,7 +77,8 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
-          child: ListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextFormField(
                 controller: _titleController,
@@ -117,9 +117,12 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                 },
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () => _saveTask(context),
-                child: const Text('Save Task'),
+              GradientButton(
+                onPressed: () {
+                  _saveTask(context);
+                  Navigator.pop(context);
+                },
+                text: "Save Task",
               ),
             ],
           ),

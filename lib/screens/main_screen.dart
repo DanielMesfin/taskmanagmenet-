@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:taskmanagmenet/model/task_model.dart';
+import 'package:taskmanagmenet/pallete.dart';
 import 'package:taskmanagmenet/provider/task_Provider.dart';
-import 'package:taskmanagmenet/screens/manage_task.dart';
+import 'package:taskmanagmenet/screens/edite_screen.dart';
+import 'package:taskmanagmenet/screens/add_task_screen.dart';
 import 'package:taskmanagmenet/style/style.dart';
 
 class MainScreen extends StatefulWidget {
@@ -26,12 +28,13 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Future<void> _fetchQuote() async {
-    final response = await http.get(Uri.parse('https://type.fit/api/quotes'));
+    final response =
+        await http.get(Uri.parse('https://zenquotes.io/api/quotes'));
     print(jsonDecode(response.body));
     if (response.statusCode == 200) {
       List quotes = jsonDecode(response.body);
       setState(() {
-        randomQuote = quotes[Random().nextInt(quotes.length)]['text'];
+        randomQuote = quotes[Random().nextInt(quotes.length)]['q'];
       });
     } else {
       setState(() {
@@ -51,12 +54,14 @@ class _MainScreenState extends State<MainScreen> {
             height: 100,
             child: Card(
               elevation: 8,
+              shadowColor: Palette.gradient2,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   randomQuote,
                   style: const TextStyle(
-                      fontSize: 18, fontStyle: FontStyle.italic),
+                      fontSize: 16, fontStyle: FontStyle.italic),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),
@@ -64,7 +69,6 @@ class _MainScreenState extends State<MainScreen> {
           Expanded(
             child: Consumer<TaskProvider>(
               builder: (context, taskProvider, child) {
-                // taskProvider.loadTasks();
                 return ListView.builder(
                   itemCount: taskProvider.tasks.length,
                   itemBuilder: (context, index) {
@@ -73,10 +77,7 @@ class _MainScreenState extends State<MainScreen> {
                       key: Key(task.title),
                       direction: DismissDirection.endToStart,
                       onDismissed: (direction) {
-                        // Remove task from list and SharedPreferences
                         taskProvider.removeTask(index);
-
-                        // Show a snackbar after removal
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('${task.title} dismissed')),
                         );
@@ -135,7 +136,10 @@ class _MainScreenState extends State<MainScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const AddEditTaskScreen(),
+                                builder: (context) => EditTaskScreen(
+                                  task: task,
+                                  taskIndex: index,
+                                ),
                               ),
                             );
                           },
